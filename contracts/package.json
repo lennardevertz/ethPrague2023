@@ -1,0 +1,10 @@
+{
+  "name": "hardhat-project",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.9.1",
+    "dotenv": "^16.1.4",
+    "ethers": "^6.5.1",
+    "hardhat": "^2.15.0",
+    "hardhat-ethers": "^1.0.1"
+  }
+}

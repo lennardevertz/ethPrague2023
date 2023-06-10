@@ -7,8 +7,8 @@ async function main() {
   
     console.log("Account balance:", (await deployer.getBalance()).toString());
     // Deploy the Voting contract
-    const Contract = await ethers.getContractFactory("");
-    const contract = await Contract.deploy();
+    const Contract = await ethers.getContractFactory("ProposalVoting");
+    const contract = await Contract.deploy('0x4200000000000000000000000000000000000007');
     await contract.deployed();
     console.log("Contract deployed to:", contract.address);
 

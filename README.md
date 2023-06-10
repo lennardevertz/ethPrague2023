@@ -7,9 +7,8 @@
   <p align="center">
 Most hackathon projects die. We need a new funding mechanism that rewards those pursuing their projects beyond the hackathon weekend.
   </p>
+<a href="https://near.org/embed/ethpraguedemo.near/widget/Progress-Pool">Live Version</a>
 </div>
-
-
 
 ## Integrations
 - [Optimism](https://www.optimism.io/)

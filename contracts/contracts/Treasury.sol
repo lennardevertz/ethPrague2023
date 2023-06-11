@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
-
 contract Treasury {
 
     struct Proposal {
@@ -11,8 +10,6 @@ contract Treasury {
 
     address public oracle;
     Proposal[] public votingResult;
-    bool public hasVotingResult;
-    bool public distributed;
 
     event FundsDistributed(address indexed recipient, uint256 amount);
     event VotingResultSet(Proposal[] result);
@@ -29,7 +26,7 @@ contract Treasury {
             _proposalOwners.length == _accepted.length,
             "Input array lengths do not match"
         );
-        require(!hasVotingResult, "Voting result already set");
+        require(votingResult.length == 0, "Voting result already set");
         require(msg.sender == oracle, "Only oracle can set the voting result");
 
         for (uint256 i = 0; i < _proposalOwners.length; i++) {
@@ -40,15 +37,12 @@ contract Treasury {
             votingResult.push(proposal);
         }
 
-        hasVotingResult = true;
         emit VotingResultSet(votingResult);
     }
 
     function distributeFunds() external {
-        require(hasVotingResult, "Voting result not set");
-        require(!distributed, "Rewards already sent");
+        require(votingResult.length > 0, "Voting result not set");
 
-        // Distribute funds among winning proposals
         uint256 winnersCount = 0;
 
         for (uint256 i = 0; i < votingResult.length; i++) {
@@ -63,12 +57,10 @@ contract Treasury {
 
         for (uint256 i = 0; i < votingResult.length; i++) {
             if (votingResult[i].accepted) {
-                address winner = votingResult[i].proposalOwner;
-                (bool sent, ) = winner.call{value: distributionAmount}("");
+                (bool sent, ) = votingResult[i].proposalOwner.call{value: distributionAmount}("");
                 require(sent, "Failed to  withdraw");
-                emit FundsDistributed(winner, distributionAmount);
+                emit FundsDistributed(votingResult[i].proposalOwner, distributionAmount);
             }
         }
-        distributed = true;
     }
 }

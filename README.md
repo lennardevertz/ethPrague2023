@@ -31,6 +31,7 @@ Most hackathon projects die. Progress Pool is a new funding mechanism that rewar
 | Optimism | [Treasury](https://optimistic.etherscan.io/address/0x8c04d05876d54914f4d3b066b884c0a2a66d40e3) | 0x8c04d05876d54914f4d3b066b884c0a2a66d40e3 |
 | Scroll | [Treasury](https://blockscout.scroll.io/address/0x36929a7f45156130aC4072cA7cE79f7b08fD326d) | 0x36929a7f45156130aC4072cA7cE79f7b08fD326d |
 | Mantle | [Token](https://explorer.testnet.mantle.xyz/address/0xD2029Fa7378Ab8d35200F6Fb0C4F203361dB0932) | 0xD2029Fa7378Ab8d35200F6Fb0C4F203361dB0932 |
+| Mantle | [Proposal](https://explorer.testnet.mantle.xyz/address/0x6daA072A660814fa3c96961dfa11eee8A39a74b3) | 0x6daA072A660814fa3c96961dfa11eee8A39a74b3 |
 - Hardhat
 - Truffle Dashboard
 
